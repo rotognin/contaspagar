@@ -52,30 +52,44 @@ class Controller
         self::viewAction('menu');
     }
 
-    public static function integrantesAction()
+    public static function formasPagamentoAction()
     {
-        self::viewAction('integrantes');
+        self::viewAction('formasPagamento');
     }
 
-    public static function musicasAction()
+    public static function tiposFornecedorAction()
     {
-        self::viewAction('musicas');
+        self::viewAction('tiposFornecedor');
     }
 
-    public static function gruposAction()
+    public static function fornecedoresAction()
     {
-        self::viewAction('grupos');
+        self::viewAction('fornecedores');
     }
 
-    public static function escalasAction()
+    public static function contasAction()
     {
-        self::viewAction('escalas');
+        self::viewAction('contas');
     }
 
-    public static function categoriasAction()
+    public static function pagamentosAction()
     {
-        self::viewAction('categorias');
+        self::viewAction('pagamentos');
     }
+
+    public static function fecharMesAction()
+    {
+        self::viewAction('fecharMes');
+    }
+
+    public static function abrirMesAction()
+    {
+        self::viewAction('abrirMes');
+    }
+
+    /**
+     * Compor os controles dos relatórios
+     */
 
     public static function homeAction()
     {
