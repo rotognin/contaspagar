@@ -1,0 +1,48 @@
+- Criação das tabelas
+    - Descrição das tabelas - OK
+    - Geração do script do Banco - OK
+
+- Projeto
+    - Criação do repositório no Github
+    - Subir a primeira versão do projeto sem os códigos do outro projeto
+
+- Criação dos Modelos
+    - Usuários
+    - Contas
+    - Pagamento
+    - Mês
+    - Fornecedores
+    - Tipos de Fornecedores
+    - Formas de Pagamento
+
+- Criação dos Controles
+    - Usuários
+    - Contas
+    - Pagamento
+    - Mês
+    - Fornecedores
+    - Tipos de Fornecedores
+    - Formas de Pagamento
+
+- Criação das Visões
+    - Tela de acesso (login)
+    - Tela para Troca de senha
+    - Tela de administração - Dashboard com mês a mês
+    - Cadastro de Conta
+    - Lista das Contas do mês
+    - Pagamento de conta
+    - Fechamento do mês
+    - Cadastro de tipos de Fornecedores
+    - Listagem de Fornecedores
+    - Cadastro de Fornecedores
+    - Cadastro de tipos de Pagamentos
+    - Relatórios diversos...
+
+- Regras de negócio
+    - Quando eu faço a composição do mês, leio as contas cadastradas.
+      Aquelas que estiverem Ativas e marcadas como "Recorrentes", eu crio um 
+      registro na tabela de Pagamentos com os campos de pagamento zerados.
+    - Permitir fechar o mês apenas se todas as contas abertas para aquele mês 
+      estiverem pagas.
+    - Uma conta que foi adicionada como recorrente no mês poderá ser retirada.
+    - Só irá permitir compor o mês se o mesmo não tiver nenhuma conta.

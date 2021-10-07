@@ -1,0 +1,65 @@
+Banco: pagar_db
+
+Usuários - usuarios_tb - Usuários de acesso ao sistema
+    - usuID
+    - usuNome
+    - usuLogin
+    - usuSenha - sha1
+    - usuSituacao - 0: Trocar a senha, 1 - Liberado, 2 - Bloqueado, 3 - Inativo
+
+Cadastro de Fornecedores - fornecedores_tb - Quem está fornecendo o serviço ou produto
+    - forID
+    - forIDUsu
+    - forNome
+    - forDescricao
+    - forIDTipo - Tabela de tipos
+    - forContato (e-mail, telefone, etc)
+    - forAtivo - 1 - Ativo, 0 - Inativo
+
+Cadastro de Tipos de Fornecedores - tipos_tb - (Escola, Banco, Serviços, TV, Telefonia, etc)
+    - tipID
+    - tipIDUsu
+    - tipNome
+    - tipDescricao
+    - tipAtivo - 1 - Ativo, 0 - Inativo
+
+Cadastro de Contas a Pagar - contas_tb
+    - conID
+    - conIDUsu
+    - conNome
+    - conDiaVencto (Dia previsto para vencimento)
+    - conAtivo - 1 - Ativo, 0 - Inativo
+    - conValorPrevisto
+    - conRecorrente - 1 - Sim, 0 - Não (Se sim, irá replicar assim que abrir novo mês)
+    - conIDFornecedor
+    - conObservacao
+
+Pagamento de Conta - pagamentos_tb
+    - pagID
+    - pagIDUsu
+    - pagAno
+    - pagMes
+    - pagIDConta
+    - pagValorReal
+    - pagValorPago
+    - pagData - Data do pagamento
+    - pagDataLancto - Data do lançamento do pagamento
+    - pagDataVencto - Data de Vencimento da Conta
+    - pagObservacoes
+    - pagForma - Cadastro de Formas de Pagamento
+
+Cadastro de Mês - meses_tb
+    - mesID
+    - mesIDUsu
+    - mesAno
+    - mesMes (01 - Janeiro, 02 - Fevereiro, etc)
+    - mesStatus - 1 - Em aberto, 2 - Fechado
+    - mesData - Data de fechamento do mês
+    - mesObservacoes
+    - mesValor - Total gasto no mês
+
+Cadastro de Formas de Pagamento - formas_tb
+    - fpgID
+    - fpgIDUsu
+    - fpgNome -  Débito, Débito Automático, Crédito, Crédito Automático, Dinheiro, Pix, Vales (VR, VA)
+    - fpgAtivo - 1 - Ativo, 0 - Inativo
