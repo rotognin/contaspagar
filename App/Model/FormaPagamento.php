@@ -49,5 +49,23 @@ class FormaPagamento
         return (self::validar($dados)) ? (int) Crud::atualizar(self::$tabela, $dados) : 0;
     }
     
+    public static function listar(bool $bTodos = true, int $fpgAtivo = 1)
+    {
+        $sql = 'SELECT * FROM formas_tb ';
+
+        if (!$bTodos){
+            $sql .= 'WHERE fpgAtivo = :fpgAtivo ';
+        }
+
+        $conn = Conexao::getConexao()->prepare($sql);
+
+        if (!$bTodos){
+            $conn->bindValue('fpgAtivo', $fpgAtivo, \PDO::PARAM_INT);
+        }
+
+        $conn->execute();
+        return $conn->fetchAll();
+
+    }
 
 }
