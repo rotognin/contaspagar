@@ -51,13 +51,14 @@ class FormaPagamento
     
     public static function listar(bool $bTodos = true, int $fpgAtivo = 1)
     {
-        $sql = 'SELECT * FROM formas_tb ';
+        $sql = 'SELECT * FROM formas_tb WHERE fpgIDUsu = :fpgIDUsu ';
 
         if (!$bTodos){
-            $sql .= 'WHERE fpgAtivo = :fpgAtivo ';
+            $sql .= 'AND fpgAtivo = :fpgAtivo ';
         }
 
         $conn = Conexao::getConexao()->prepare($sql);
+        $conn->bindValue('fpgIDUsu', $_SESSION['usuID'], \PDO::PARAM_INT);
 
         if (!$bTodos){
             $conn->bindValue('fpgAtivo', $fpgAtivo, \PDO::PARAM_INT);
