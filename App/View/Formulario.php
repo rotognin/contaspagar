@@ -23,16 +23,34 @@ class Formulario
         $value     = (array_key_exists('value', $config))     ? $config['value'] : '';
         $size      = (array_key_exists('size', $config))      ? $config['size']  : '50';
 
-        $html  = '<label for="' . $id . '">' . $label . '</label>';
+        $html  = '<label for="' . $id . '">' . $label . '&nbsp;&nbsp;</label>';
         $html .= '<input type="text" id="' . $id . '" name="' . $id . '" value="' . $value . '" ';
         $html .= $autofocus . $required . $readonly . ' size="' . $size . '">';
 
         return $html;
     }
 
+    /**
+     * Montagem de um campo de formulário "Input Radio"
+     * Será montado um a um, ou seja, para cada botão, uma chamada à função é necessária.
+     * Passar os parâmetros: label, name, value, campo
+     * - Se o campo for igual ao value, irá marcar o botão
+     */
     public static function inputRadio(array $config)
     {
-        // Implementar o tipo Radio
+        $html  = '';
+        $label = $config['label'];
+        $name  = $config['name'];
+        $value = $config['value'];
+        $id    = $name . $value;
+        $campo = $config['campo'];
+        $checked = ($config['campo'] == $value) ? ' checked ' : '';
+
+        $html  = '<input type="radio" id="' . $id . '" name="' . $name . '" value="' . $value . '" ';
+        $html .= $checked . '>';
+        $html .= '<label for="' . $id . '">&nbsp;&nbsp;' . $label . '</label>';
+
+        return $html;
     }
 }
 

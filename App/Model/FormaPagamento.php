@@ -41,7 +41,7 @@ class FormaPagamento
 
     public static function gravar(array $dados)
     {
-        return (self::validar($dados)) ? (int) Crud::inserir(self::$tabela, $dados) : 0;
+        return (self::validar($dados)) ? (int) Crud::inserir('formas_tb', $dados) : 0;
     }
 
     public static function atualizar(array $forma)

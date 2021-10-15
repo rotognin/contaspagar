@@ -56,7 +56,8 @@ $_SESSION['mensagem'] = '';
                         'label'    => 'ID:',
                         'id'       => 'fpgID',
                         'value'    => $forma['fpgID'],
-                        'readonly' => true
+                        'readonly' => true,
+                        'size'     => 10
                     ));
                 ?>
                 <br><br>
@@ -67,21 +68,30 @@ $_SESSION['mensagem'] = '';
                         'id'        => 'fpgNome',
                         'value'     => $forma['fpgNome'],
                         'autofocus' => true,
-                        'required'  => true,
-                        'size'      => '100'
+                        'required'  => true
                     ));
                 ?>
                 <br><br>
                 <!-- Situação -->
                 <p>Situação:
                     <br>
-                    <input type="radio" id="fpgAtivo1" name="fpgAtivo" value="1"
-                           <?php if ($forma['fpgAtivo'] == 1) { echo ' checked '; }?>>
-                    <label for="fpgAtivo1">Ativo</label>
+                    <?php 
+                        echo Formulario::inputRadio(array(
+                            'label' => 'Ativo',
+                            'name'  => 'fpgAtivo',
+                            'value' => '1',
+                            'campo' => $forma['fpgAtivo']
+                        ));
+                    ?>
                     <br>
-                    <input type="radio" id="fpgAtivo0" name="fpgAtivo" value="0"
-                           <?php if ($forma['fpgAtivo'] == 0) { echo ' checked '; }?>>
-                    <label for="fpgAtivo0">Inativo</label>
+                    <?php 
+                        echo Formulario::inputRadio(array(
+                            'label' => 'Inativo',
+                            'name' => 'fpgAtivo',
+                            'value' => '0',
+                            'campo' => $forma['fpgAtivo']
+                        ));
+                    ?>
                 </p>
                 <input type="hidden" name="fpgIDUsu" value="<?php echo $forma['fpgIDUsu']; ?>">
                 <input type="submit" value="Gravar" class="w3-button w3-blue">
