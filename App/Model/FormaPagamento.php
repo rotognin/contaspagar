@@ -4,9 +4,9 @@ namespace App\Model;
 
 class FormaPagamento
 {
-    private $tabela = 'formas_tb';
+    private static $tabela = 'formas_tb';
     
-    private $status = array(
+    private static $status = array(
         0 => 'Inativo',
         1 => 'Ativo'
     );
@@ -41,10 +41,10 @@ class FormaPagamento
 
     public static function gravar(array $dados)
     {
-        return (self::validar($dados)) ? (int) Crud::inserir('formas_tb', $dados) : 0;
+        return (self::validar($dados)) ? (int) Crud::inserir(self::$tabela, $dados) : 0;
     }
 
-    public static function atualizar(array $forma)
+    public static function atualizar(array $dados)
     {
         return (self::validar($dados)) ? (int) Crud::atualizar(self::$tabela, $dados) : 0;
     }
@@ -66,7 +66,15 @@ class FormaPagamento
 
         $conn->execute();
         return $conn->fetchAll();
-
     }
 
+    public static function carregar(int $fpgID)
+    {
+        $sql = 'SELECT * FROM formas_tb WHERE fpgID = :fpgID';
+        $conn = Conexao::getConexao()->prepare($sql);
+        $conn->bindValue('fpgID', $fpgID, \PDO::PARAM_INT);
+        $conn->execute();
+        $result = $conn->fetchAll();
+        return $result[0];
+    }
 }

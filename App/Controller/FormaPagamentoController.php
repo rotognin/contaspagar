@@ -46,6 +46,7 @@ class FormaPagamentoController extends Controller
     {
         $post['fpgID'] = 0;
         $formaPagamento = self::preencherArray($post);
+        $formaPagamento['fpgIDUsu'] = $_SESSION['usuID'];
 
         if (!Model\FormaPagamento::validar($formaPagamento)) {
             parent::viewAction('cadFormaPagamento');

@@ -43,6 +43,38 @@ class Crud
      */
     public static function atualizar(string $tabela, array $dados)
     {
+        /**
+         * UPDATE tabela_tb SET campo1 = :campo1, campo2 = :campo2 WHERE id = :id
+         */
+        $id     = 0;
+        $nameID = '';
+        $fields = '';
 
+        foreach($dados as $key => $value)
+        {
+            if ($id == 0) {
+                $nameID = $key; 
+                $id = $value; 
+            } else {
+                $fields .= $key . ' = :' . $key . ', ';
+            }
+        }
+
+        $fields = substr($fields, 0, strlen($fields) - 2);
+        $sql = 'UPDATE ' . $tabela . ' SET ' . $fields . ' WHERE ' . $nameID . ' = :' . $nameID;
+
+        try
+        {
+            $conn = Conexao::getConexao();
+            $stmt = $conn->prepare($sql);
+            $result = $stmt->execute($dados);
+
+            if ($result){
+                return (int) $stmt->rowCount();
+            }
+        } catch (\PDOException $exc)
+        {
+            die($exc->errorInfo[2]);
+        }
     }
 }
