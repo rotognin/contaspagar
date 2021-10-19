@@ -3,7 +3,7 @@
         <p>
             <h4>Cadastros</h4>
             <a class="w3-button w3-blue" href="principal.php?action=formasPagamento">Formas de Pagamento</a>
-            <a class="w3-button w3-blue" href="principal.php?action=tiposFornecedor">Tipos de Fornecedor</a>
+            <a class="w3-button w3-blue" href="principal.php?action=tiposFornecedor">Tipos de Fornecedores</a>
             <a class="w3-button w3-blue" href="principal.php?action=fornecedores">Fornecedores</a>
             <a class="w3-button w3-blue" href="principal.php?action=contas">Contas</a>
         </p>

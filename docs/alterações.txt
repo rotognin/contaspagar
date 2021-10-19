@@ -1,0 +1,2 @@
+- Continuar a criação do Tipo de Fornecedores 
+  - Model e View (lista e cadastro)

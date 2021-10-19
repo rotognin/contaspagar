@@ -3,17 +3,17 @@
     - Geração do script do Banco - OK
 
 - Projeto
-    - Criação do repositório no Github
-    - Subir a primeira versão do projeto sem os códigos do outro projeto
+    - Criação do repositório no Github - OK
+    - Subir a primeira versão do projeto sem os códigos do outro projeto - OK
 
 - Criação dos Modelos
-    - Usuários
+    - Usuários - OK
     - Contas
     - Pagamento
     - Mês
     - Fornecedores
     - Tipos de Fornecedores
-    - Formas de Pagamento
+    - Formas de Pagamento - OK
 
 - Criação dos Controles
     - Usuários
@@ -21,8 +21,8 @@
     - Pagamento
     - Mês
     - Fornecedores
-    - Tipos de Fornecedores
-    - Formas de Pagamento
+    - Tipos de Fornecedores - OK (Continuar...)
+    - Formas de Pagamento - OK
 
 - Criação das Visões
     - Tela de acesso (login)
@@ -35,7 +35,7 @@
     - Cadastro de tipos de Fornecedores
     - Listagem de Fornecedores
     - Cadastro de Fornecedores
-    - Cadastro de tipos de Pagamentos
+    - Cadastro de Formas de Pagamentos - OK
     - Relatórios diversos...
 
 - Regras de negócio
