@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Cadastro de Tipos de Fornecedor
+ * Cadastro de Fornecedores
  */
 
 namespace App\View;
 
 use App\Model as Model;
 
-$tipID = (isset($_SESSION['tipID'])) ? $_SESSION['tipID'] : 0;
+$forID = (isset($_SESSION['forID'])) ? $_SESSION['forID'] : 0;
 
-$tipo = Model\TipoFornecedor::getArray();
+$fornecedor = Model\Fornecedor::getArray();
 $novo = true;
 
-if ($tipID > 0){
-    $tipo = Model\TipoFornecedor::carregar($tipID);
+if ($forID > 0){
+    $fornecedor = Model\Fornecedor::carregar($forID);
 
-    if (!$tipo){
-        $_SESSION['mensagem'] = 'Não foi possível carregar os dados do Tipo de Fornecedor.';
+    if (!$fornecedor){
+        $_SESSION['mensagem'] = 'Não foi possível carregar os dados do Fornecedor.';
     } else {
         $novo = false;
     }
@@ -38,9 +38,9 @@ $_SESSION['mensagem'] = '';
 <?php include 'html' . DIRECTORY_SEPARATOR . 'head.php'; ?>
 <body>
     <div class="w3-container w3-card-4 w3-margin">
-        <h3><?php echo verdade($novo, 'Novo ', 'Editar '); ?>Tipo de Fornecedor</h3>
+        <h3><?php echo verdade($novo, 'Novo ', 'Editar '); ?>Fornecedor</h3>
         <a class="w3-button w3-blue" href="principal.php?action=menu">Início</a>
-        <a class="w3-button w3-blue" href="principal.php?action=tiposFornecedor">Lista de Tipos de Fornecedores</a>
+        <a class="w3-button w3-blue" href="principal.php?action=fornecedores">Lista de Fornecedores</a>
         <br><br>
     </div>
     <div class="w3-container w3-card-4 w3-margin">
@@ -48,41 +48,44 @@ $_SESSION['mensagem'] = '';
         <?php include_once 'lib/mensagem.php'; ?>
             <form method="post" 
                   class="w3-container" 
-                  action="principal.php?control=tipoFornecedor&action=<?php echo verdade($novo, 'gravarTipoFornecedor', 'atualizarTipoFornecedor'); ?>">
+                  action="principal.php?control=fornecedor&action=<?php echo verdade($novo, 'gravarFornecedor', 'atualizarFornecedor'); ?>">
 
                 <!-- ID -->
                 <?php 
                     echo Formulario::inputText(array(
                         'label'    => 'ID:',
-                        'id'       => 'tipID',
-                        'value'    => $tipo['tipID'],
+                        'id'       => 'forID',
+                        'value'    => $fornecedor['forID'],
                         'readonly' => true,
                         'size'     => 10
                     ));
                 ?>
                 <br><br>
-                <!-- Nome do Tipo de Fornecedor -->
+                <!-- Nome do Fornecedor -->
                 <?php 
                     echo Formulario::inputText(array(
                         'label'     => 'Nome:',
-                        'id'        => 'tipNome',
-                        'value'     => $tipo['tipNome'],
+                        'id'        => 'forNome',
+                        'value'     => $fornecedor['forNome'],
                         'autofocus' => true,
                         'required'  => true
                     ));
                 ?>
                 <br><br>
-                <!-- Descrição do Tipo de Fornecedor -->
+                <!-- Descrição do Fornecedor -->
                 <?php 
                     echo Formulario::inputText(array(
                         'label'     => 'Descrição:',
-                        'id'        => 'tipDescricao',
-                        'value'     => $tipo['tipDescricao'],
+                        'id'        => 'forDescricao',
+                        'value'     => $fornecedor['forDescricao'],
                         'autofocus' => true,
                         'required'  => true
                     ));
                 ?>
                 <br><br>
+
+
+                
                 <!-- Situação -->
                 <p>Situação:
                     <br>
