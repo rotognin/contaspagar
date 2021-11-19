@@ -3,6 +3,7 @@
 Versão | Data | Andamento 
 :-------: | :-------: | :------:
 0.1    | 06/10/2021 | Início do desenvolvimento
+0.2    | 18/11/2021 | Formas de Pagamento e Tipos de Fornecedores
 
 Sistema para cadastro de pagamento de contas, pessoal.
 

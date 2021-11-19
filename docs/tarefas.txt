@@ -12,7 +12,7 @@
     - Pagamento
     - Mês
     - Fornecedores
-    - Tipos de Fornecedores
+    - Tipos de Fornecedores - OK
     - Formas de Pagamento - OK
 
 - Criação dos Controles
