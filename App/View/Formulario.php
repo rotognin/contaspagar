@@ -52,5 +52,53 @@ class Formulario
 
         return $html;
     }
+
+    /**
+     * Montagem de um campo do tipo select/options
+     * Deverá ser passado o array com as informações para compor as opções
+     */
+    public static function selectOption(array $config)
+    {
+        $html       = '';
+        $label      = $config['label'];
+        $name       = $config['name'];
+        $value      = $config['value'];
+        $campoValue = $config['campoValue'];
+        $campoLabel = $config['campoLabel'];
+        $primeiro   = true;
+
+        $arrayInfo  = $config['array'];
+
+        $html  = '<label for="' . $name . '">' . $label . '&nbsp;&nbsp;</label>';
+        $html .= '<select class="w3-select" id="' . $name . '" name="' . $name . '">';
+
+        foreach ($arrayInfo as $info)
+        {
+            $html .= '<option value="' . $info[$campoValue] . '" ';
+
+            if ($primeiro && empty($value)) {
+                $html .= 'selected';
+                $primeiro = false;
+            }
+
+            if (!empty($value) && $info[$campoValue] == $value) {
+                $html .= 'selected';
+            }
+
+            $html .= '>' . $info[$campoLabel] . '&nbsp;&nbsp;&nbsp;&nbsp;</option>';
+        }
+
+        $html .= '</select>';
+        return $html;
+
+        /**
+         * <label for="fotTipo">Tipo:</label>
+         * <select class="w3-select" id="forTipo" name="forTipo">
+         *     <option value="tipo1" selected>Tipo 1</option>
+         *     <option value="tipo2">Tipo 2</option>
+         *     <option value="tipo3">Tipo 3</option>
+         * </select>
+         */
+    }
 }
 

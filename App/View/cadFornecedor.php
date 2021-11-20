@@ -23,6 +23,8 @@ if ($forID > 0){
     }
 }
 
+$tipos = Model\TipoFornecedor::listar(false);
+
 if (!isset($_SESSION['mensagem']))
 {
     $_SESSION['mensagem'] = '';
@@ -78,36 +80,56 @@ $_SESSION['mensagem'] = '';
                         'label'     => 'Descrição:',
                         'id'        => 'forDescricao',
                         'value'     => $fornecedor['forDescricao'],
-                        'autofocus' => true,
+                        'autofocus' => false,
                         'required'  => true
                     ));
                 ?>
                 <br><br>
-
-
-                
+                <!-- Tipo de Fornecedor -->
+                <?php
+                    echo Formulario::selectOption(array(
+                        'label'      => 'Tipo de Fornecedor:',
+                        'name'       => 'forIDTipo',
+                        'value'      => ($fornecedor['forIDTipo'] > 0) ? $fornecedor['forIDTipo'] : '',
+                        'campoValue' => 'tipID',
+                        'campoLabel' => 'tipNome',
+                        'array'      => $tipos
+                    ));
+                ?>
+                <br><br>
+                <!-- Contato do Fornecedor -->
+                <?php 
+                    echo Formulario::inputText(array(
+                        'label'     => 'Contato:',
+                        'id'        => 'forContato',
+                        'value'     => $fornecedor['forContato'],
+                        'autofocus' => false,
+                        'required'  => false
+                    ));
+                ?>
+                <br><br>
                 <!-- Situação -->
                 <p>Situação:
                     <br>
                     <?php 
                         echo Formulario::inputRadio(array(
                             'label' => 'Ativo',
-                            'name'  => 'tipAtivo',
+                            'name'  => 'forAtivo',
                             'value' => '1',
-                            'campo' => $tipo['tipAtivo']
+                            'campo' => $fornecedor['forAtivo']
                         ));
                     ?>
                     <br>
                     <?php 
                         echo Formulario::inputRadio(array(
                             'label' => 'Inativo',
-                            'name'  => 'tipAtivo',
+                            'name'  => 'forAtivo',
                             'value' => '0',
-                            'campo' => $tipo['tipAtivo']
+                            'campo' => $fornecedor['forAtivo']
                         ));
                     ?>
                 </p>
-                <input type="hidden" name="tipIDUsu" value="<?php echo $tipo['tipIDUsu']; ?>">
+                <input type="hidden" name="forIDUsu" value="<?php echo $fornecedor['forIDUsu']; ?>">
                 <input type="submit" value="Gravar" class="w3-button w3-blue">
             </form>
         </p>
