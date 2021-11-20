@@ -31,6 +31,34 @@ class Formulario
     }
 
     /**
+     * Montagem de um campo de formulário numérico (Input Number)
+     * Passar os parâmetros: label, id (name), value, autofocus (bool),
+     * required (bool), readonly (bool), size (padrão "50"),
+     * min, step (string)
+     */
+    public static function inputNumber(array $config)
+    {
+        $html = '';
+        $id = '';
+
+        $label     = (array_key_exists('label', $config))     ? $config['label'] : '';
+        $id        = $config['id'];
+        $autofocus = (array_key_exists('autofocus', $config)) ? ' autofocus '    : '';
+        $required  = (array_key_exists('required', $config))  ?  ' required '    : '';
+        $readonly  = (array_key_exists('readonly', $config))  ? ' readonly '     : '';
+        $value     = (array_key_exists('value', $config))     ? $config['value'] : '';
+        $size      = (array_key_exists('size', $config))      ? $config['size']  : '50';
+        $min       = (array_key_exists('min', $config))       ? ' min="' . $config['min'] . '" '   : '';
+        $step      = (array_key_exists('step', $config))      ? ' step="' . $config['step'] . '" ' : '';
+
+        $html  = '<label for="' . $id . '">' . $label . '&nbsp;&nbsp;</label>';
+        $html .= '<input type="number" id="' . $id . '" name="' . $id . '" value="' . $value . '" ';
+        $html .= $autofocus . $required . $readonly . $min . $step . ' size="' . $size . '">';
+
+        return $html;
+    }
+
+    /**
      * Montagem de um campo de formulário "Input Radio"
      * Será montado um a um, ou seja, para cada botão, uma chamada à função é necessária.
      * Passar os parâmetros: label, name, value, campo
@@ -38,12 +66,12 @@ class Formulario
      */
     public static function inputRadio(array $config)
     {
-        $html  = '';
-        $label = $config['label'];
-        $name  = $config['name'];
-        $value = $config['value'];
-        $id    = $name . $value;
-        $campo = $config['campo'];
+        $html    = '';
+        $label   = $config['label'];
+        $name    = $config['name'];
+        $value   = $config['value'];
+        $id      = $name . $value;
+        $campo   = $config['campo'];
         $checked = ($config['campo'] == $value) ? ' checked ' : '';
 
         $html  = '<input type="radio" id="' . $id . '" name="' . $name . '" value="' . $value . '" ';

@@ -87,10 +87,6 @@ class Controller
         self::viewAction('abrirMes');
     }
 
-    /**
-     * Compor os controles dos relatórios
-     */
-
     public static function homeAction()
     {
         header('Location: ' . DIR['home']);
