@@ -11,6 +11,8 @@ if (!$usuario){
     Exit;
 }
 
+$mesAtivo = formatarMesAno($usuario['usuMes'], $usuario['usuAno']);
+
 ?>
 
 <!DOCTYPE html>

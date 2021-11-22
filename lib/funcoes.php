@@ -44,3 +44,15 @@ function seNaoVazia(string $valor, string $retorno)
 {
     return (empty($valor)) ? '' : $retorno;
 }
+
+/**
+ * Formatar o mês e ano ativos
+ */
+function formatarMesAno(int $mes, int $ano)
+{
+    if (!is_int($mes) || !is_int($ano) || $mes == 0 || $ano == 0) {
+        return '<i>Não definido</i>';
+    }
+
+    return (string) MES[$mes] . '/' . $ano;
+}

@@ -7,6 +7,8 @@ CREATE TABLE `usuarios_tb` (
   `usuLogin` varchar(20) NOT NULL,
   `usuSenha` varchar(50) NOT NULL,
   `usuSituacao` int NOT NULL COMMENT '0 - Inativo, 1 - Liberado, 2 - Bloqueado, 3 - Trocar a Senha',
+  `usuMes` int NOT NULL DEFAULT 0,
+  `usuANO` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`usuID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

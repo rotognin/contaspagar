@@ -1,5 +1,6 @@
     <div class="w3-container">
-        <h3><b>Painel Administrativo</b> - <?php echo $_SESSION['usuNome']; ?> - <a class="w3-button w3-small w3-light-grey" href="principal.php?action=logout">Sair</a></h3>
+        <h3><b>Painel Administrativo</b> - <?php echo $_SESSION['usuNome']; ?>&nbsp;&nbsp;&nbsp;<a class="w3-button w3-small w3-light-grey" href="principal.php?action=logout">Sair</a></h3>
+        <p><strong>Mês ativo: </strong><?php echo $mesAtivo; ?>&nbsp;&nbsp;&nbsp;<a class="w3-button w3-small w3-green" href="principal.php?action=alterarMes">Alterar</a></p>
         <p>
             <h4>Cadastros</h4>
             <a class="w3-button w3-blue" href="principal.php?action=formasPagamento">Formas de Pagamento</a>

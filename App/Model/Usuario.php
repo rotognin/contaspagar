@@ -11,7 +11,9 @@ class Usuario
             'usuNome'     => '',
             'usuLogin'    => '',
             'usuSenha'    => '',
-            'usuSituacao' => 0
+            'usuSituacao' => 0,
+            'usuMes'      => 0,
+            'usuAno'      => 0
         );
     }
 
@@ -32,6 +34,26 @@ class Usuario
         }
 
         return $result[0];
+    }
+
+    public static function alterarMes(int $mes, int $ano)
+    {
+        $sql = 'UPDATE usuarios_tb SET usuMes = :usuMes, usuAno = :usuAno ' .
+               'WHERE usuID = :usuID';
+        $conn = Conexao::getConexao();
+        $stmt = $conn->prepare($sql);
+
+        $result = $stmt->execute(array(
+            'usuMes' => $mes,
+            'usuAno' => $ano,
+            'usuID'  => $_SESSION['usuID']
+        ));
+
+        if ($result) {
+            return (int) $stmt->rowCount();
+        }
+
+        return 0;
     }
 
     public static function verificarLogin(string $usuLogin, string $usuSenha){

@@ -6,6 +6,8 @@ Usuários - usuarios_tb - Usuários de acesso ao sistema
     - usuLogin
     - usuSenha - sha1
     - usuSituacao - 0: Trocar a senha, 1 - Liberado, 2 - Bloqueado, 3 - Inativo
+    - usuMes
+    - usuAno
 
 Cadastro de Fornecedores - fornecedores_tb - Quem está fornecendo o serviço ou produto
     - forID
