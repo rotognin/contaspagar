@@ -32,9 +32,9 @@ class Fornecedor
         );
     }
 
-    public static function validar(array $forma)
+    public static function validar(array $fornecedor)
     {
-        if ($forma['forNome'] == '') {
+        if ($fornecedor['forNome'] == '') {
             $_SESSION['mensagem'] = 'O nome do Fornecedor deve ser preenchido.';
             return false;
         }

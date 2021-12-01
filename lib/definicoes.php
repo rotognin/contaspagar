@@ -26,6 +26,9 @@ define('MES', array(
     12 => 'Dezembro'
 ));
 
+define('MES_ABERTO', 1);
+define('MES_FECHADO', 2);
+
 function autoload($class)
 {   
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);

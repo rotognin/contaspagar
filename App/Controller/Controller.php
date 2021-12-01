@@ -87,6 +87,11 @@ class Controller
         self::viewAction('abrirMes');
     }
 
+    public static function alterarMesAction()
+    {
+        self::viewAction('alterarMes');
+    }
+
     public static function homeAction()
     {
         header('Location: ' . DIR['home']);
