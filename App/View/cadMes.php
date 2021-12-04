@@ -76,11 +76,12 @@ $_SESSION['mensagem'] = '';
                 <!-- Ano -->
                 <?php 
                     echo Formulario::inputNumber(array(
-                        'label'     => 'Contato:',
-                        'id'        => 'forContato',
-                        'value'     => $fornecedor['forContato'],
-                        'autofocus' => false,
-                        'required'  => false
+                        'label'     => 'Ano:',
+                        'id'        => 'mesAno',
+                        'value'     => $mes['mesAno'],
+                        'required'  => true,
+                        'min'       => '2019',
+                        'step'      => '1'
                     ));
                 ?>
                 <br><br>
@@ -94,7 +95,7 @@ $_SESSION['mensagem'] = '';
                     ));
                 ?>
                 <br><br>
-                <input type="hidden" name="forIDUsu" value="<?php echo $fornecedor['forIDUsu']; ?>">
+                <input type="hidden" name="forIDUsu" value="<?php echo $mes['mesIDUsu']; ?>">
                 <input type="submit" value="Gravar" class="w3-button w3-blue">
             </form>
         </p>

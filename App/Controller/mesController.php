@@ -25,23 +25,19 @@ class mesController extends Controller
         return $mes;
     }
 
-    /**
-     * Para fechar um mês, irá para a lista de meses em aberto
-     * ** Na lista de fechamento de meses, fazer a somatória de gastos do mês para o operador ver
-     */
     public static function fecharMesAction()
     {
-        /**
-         * o "GET" 'fechamento' irá informar à view carregada que deverá ser
-         * mostrado o botão para o operador selecionar, dentre os meses em aberto,
-         * qual ele irá fechar, e também exibir o valor acumulado gasto naquele mês
-         */
         parent::ViewAction('meses', 'fechamento');
     }
 
     public static function abrirMesAction()
     {
         parent::ViewAction('cadMes');
+    }
+
+    public static function fecharMes()
+    {
+        //
     }
 
     public static function atualizarMesAction(array $post, array $get)

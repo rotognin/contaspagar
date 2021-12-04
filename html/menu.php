@@ -12,7 +12,7 @@
             <h4>Movimentações</h4>
             <a class="w3-button w3-blue" href="principal.php?action=pagamentos">Pagamentos</a>
             <a class="w3-button w3-blue" href="principal.php?control=mes&action=fecharMes">Fechamento Mensal</a>
-            <a class="w3-button w3-blue" href="principal.php?control=mes&action=abrirMes">Abertura Mensal</a>
+            <a class="w3-button w3-blue" href="principal.php?control=mes&action=cadMes">Abertura Mensal</a>
         </p>
         <p>
             <h4>Relatórios</h4>
